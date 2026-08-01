@@ -17,14 +17,14 @@ export const processSteps: ProcessStep[] = [
 ];
 
 export const services: CardItem[] = [
-  { title: "Data Protection Readiness Assessment", icon: ClipboardCheck, description: "A structured review of the organisation’s current practices, documentation, risks and priority compliance needs." },
+  { title: "Data Protection Readiness Assessment", icon: ClipboardCheck, description: "A structured review of current practices, documentation, risks and compliance needs under the Ghana Data Protection Act, 2012 (Act 843)." },
   { title: "Data Mapping and Inventory", icon: Network, description: "Identify the personal data you collect, where it comes from, why it is used, who can access it and where it is stored." },
   { title: "Policies and Privacy Notices", icon: FileSearch, description: "Develop or review practical privacy notices, internal policies, retention schedules and data-handling procedures." },
   { title: "Staff Awareness Training", icon: GraduationCap, description: "Practical training on confidentiality, secure data handling, individual rights and incident reporting." },
   { title: "Data Protection Impact Assessments", icon: SearchCheck, description: "Assess projects or processing activities that may create significant privacy risks." },
   { title: "Data Subject Request Procedures", icon: Users, description: "Create processes for receiving, verifying, tracking and responding to requests involving applicable individual rights." },
   { title: "Data Breach Preparedness", icon: ShieldCheck, description: "Develop internal reporting, escalation, investigation and response procedures for suspected personal data breaches." },
-  { title: "Ongoing Compliance Support", icon: LifeBuoy, description: "Periodic reviews, document updates and practical guidance for organisations without a full internal privacy team." },
+  { title: "Ongoing Compliance Support", icon: LifeBuoy, description: "Periodic reviews, document updates, mandatory DPC registration and renewal assistance, and practical guidance for organisations." },
 ];
 
 export const industries: CardItem[] = [
@@ -49,9 +49,10 @@ export const faqs: FAQ[] = [
 ];
 
 export const readinessItems = [
-  "We do not have a complete record of the personal data we hold.",
+  "We are not registered with the Data Protection Commission (DPC) as a data controller.",
+  "We do not have a complete record of the personal data we hold and process.",
   "Our privacy notice has not been reviewed recently.",
-  "Staff members have not received formal data protection training.",
+  "Staff members have not received formal data protection training under Act 843.",
   "We are unsure how long different records should be retained.",
   "We do not have a documented process for personal data requests.",
   "We use third-party vendors without reviewing their data-handling practices.",
