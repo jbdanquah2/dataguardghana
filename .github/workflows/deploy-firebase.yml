@@ -1,9 +1,6 @@
 name: Deploy DataGuard Ghana
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 permissions:
