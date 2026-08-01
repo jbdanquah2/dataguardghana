@@ -1,0 +1,63 @@
+name: Deploy DataGuard Ghana
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dataguardghana-production
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    name: Build and deploy to Firebase Hosting
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: production
+      url: https://dataguardghana.web.app
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Build static site
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://dataguardghana.web.app
+
+      - name: Verify static export
+        run: |
+          test -f out/index.html
+          test -f out/privacy/index.html
+          test -f out/dataguard-ghana-logo.png
+
+      - name: Deploy DataGuard Ghana Hosting target
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_BELICKS }}
+          projectId: belicks
+          target: dataguardghana
+          channelId: live
+          entryPoint: .
+          firebaseToolsVersion: 15.4.0

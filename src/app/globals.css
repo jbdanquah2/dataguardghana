@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0b1f33;
+  --blue: #123a5a;
+  --teal: #0f766e;
+  --gold: #d4a72c;
+  --surface: #f8fafc;
+  --border: #e2e8f0;
+  --ink: #172033;
+  --muted: #64748b;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { margin: 0; background: white; color: var(--ink); font-family: var(--font-inter), sans-serif; }
+h1, h2, h3, h4 { font-family: var(--font-manrope), sans-serif; letter-spacing: -0.025em; }
+button, a, input, select, textarea { outline-color: var(--teal); }
+:focus-visible { outline: 3px solid rgba(15, 118, 110, .35); outline-offset: 3px; }
+::selection { background: #ccfbf1; color: var(--navy); }
+
+.container-page { width: min(calc(100% - 2rem), 75rem); margin-inline: auto; }
+.section-pad { padding-block: clamp(4.5rem, 8vw, 7.5rem); }
+.eyebrow { color: var(--teal); font-size: .76rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.section-title { margin-top: .85rem; max-width: 48rem; color: var(--navy); font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 750; line-height: 1.12; }
+.card { border: 1px solid var(--border); border-radius: .5rem; background: white; }
+.btn { display: inline-flex; min-height: 3rem; align-items: center; justify-content: center; gap: .5rem; border-radius: .55rem; padding: .7rem 1.15rem; font-weight: 750; transition: background .2s, color .2s, border-color .2s, transform .2s; }
+.desktop-cta { display: none; }
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: var(--teal); color: white; }
+.btn-primary:hover { background: #0b615b; }
+.btn-secondary { border: 1px solid #cbd5e1; background: white; color: var(--navy); }
+.btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+.field { width: 100%; border: 1px solid #cbd5e1; border-radius: .55rem; background: white; padding: .72rem .8rem; color: var(--ink); }
+.field:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(15,118,110,.12); outline: 0; }
+.field-error { border-color: #b91c1c; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+@media (min-width: 640px) { .desktop-cta { display: inline-flex; } }
+
+@media (max-width: 360px) { .container-page { width: min(calc(100% - 1.25rem), 75rem); } }

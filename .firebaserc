@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "belicks"
+  },
+  "targets": {
+    "belicks": {
+      "hosting": {
+        "dataguardghana": [
+          "dataguardghana"
+        ]
+      }
+    }
+  }
+}
