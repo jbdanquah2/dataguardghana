@@ -1,20 +1,23 @@
-import { FAQSection } from "@/components/FAQSection";
 import {
-  ComplianceChallenge, ContactSection, Hero, IndustriesSection, ProcessSection,
-  ReadinessChecklist, ServicesSection, TrustStrip, WhyDataGuard,
+  Hero,
+  IndustriesChips,
+  ServicesSection,
+  ProcessSection,
+  VerifiedProofSection,
+  ReadinessChecklist,
+  FinalWhatsAppCTA,
 } from "@/components/HomeSections";
 
 export default function Home() {
-  return <>
-    <Hero />
-    <TrustStrip />
-    <ComplianceChallenge />
-    <ProcessSection />
-    <ServicesSection />
-    <IndustriesSection />
-    <WhyDataGuard />
-    <ReadinessChecklist />
-    <FAQSection />
-    <ContactSection />
-  </>;
+  return (
+    <>
+      <Hero />
+      <IndustriesChips />
+      <ServicesSection preview />
+      <ProcessSection compact />
+      <VerifiedProofSection />
+      <ReadinessChecklist />
+      <FinalWhatsAppCTA />
+    </>
+  );
 }

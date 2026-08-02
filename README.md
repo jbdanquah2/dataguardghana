@@ -1,6 +1,6 @@
 # DataGuard Ghana
 
-A responsive, static website for DataGuard Ghana, built with Next.js, TypeScript, Tailwind CSS, React Hook Form and Zod. Enquiries are validated in the browser and prepared as structured WhatsApp messages.
+A responsive, static website for DataGuard Ghana, built with Next.js, TypeScript, and Tailwind CSS. The site provides details on data protection assessments, training, and operational support, with WhatsApp as the primary conversion path.
 
 ## Requirements
 

@@ -1,66 +1,436 @@
+"use client";
+
 import {
-  ArrowRight, Check, CheckCircle2, ClipboardList, Eye, FileWarning,
-  LockKeyhole, MapPin, MessageCircle, Phone, ShieldCheck, UserRoundCheck,
+  ArrowRight, Check, ChevronDown, Mail, MapPin,
+  MessageCircle, Phone, ShieldCheck, Sparkles,
 } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 import { Container } from "./Container";
 import { SectionHeading } from "./SectionHeading";
-import { ConsultationForm } from "./ConsultationForm";
-import { dashboardItems, industries, processSteps, readinessItems, services } from "@/data/content";
+import { ReadinessQuiz } from "./ReadinessQuiz";
+import { createWhatsAppUrl } from "@/lib/whatsapp";
+import { industries, processSteps, serviceGroups, verifiedProof } from "@/data/content";
+
+const whatsappUrl = createWhatsAppUrl();
 
 export function Hero() {
-  return <section id="top" className="bg-[#f8fafc] py-16 sm:py-20 lg:py-24">
-    <Container className="grid items-center gap-14 lg:grid-cols-[1.08fr_.92fr]">
-      <div>
-        <p className="flex max-w-xl items-center gap-2 border-l-2 border-[#d4a72c] pl-3 text-xs font-bold uppercase tracking-[.08em] leading-5 text-[#0f766e]"><ShieldCheck size={15} className="shrink-0" />Practical Data Protection Support for Ghanaian Organisations</p>
-        <h1 className="mt-6 max-w-3xl font-[var(--font-manrope)] text-[clamp(2.25rem,3.8vw,3.5rem)] font-extrabold leading-[1.1] tracking-[-.035em] text-[#0b1f33]">Protect personal data. Strengthen trust. Build stronger compliance practices.</h1>
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">DataGuard Ghana helps organisations understand their data protection responsibilities, identify privacy risks and implement practical compliance measures that fit their operations.</p>
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row"><a href="#contact" className="btn btn-primary">Request a Data Protection Assessment <ArrowRight size={18} /></a><a href="#services" className="btn btn-secondary">Explore Our Services</a></div>
-        <p className="mt-5 flex items-center gap-2 text-sm font-semibold text-slate-600"><CheckCircle2 size={17} className="text-[#0f766e]" />Clear guidance. Practical documentation. Ongoing support.</p>
-      </div>
-      <div className="border border-slate-300 bg-white" aria-label="Illustrative data protection assessment scope">
-        <div className="border-t-4 border-[#0f766e] px-5 py-5 sm:px-7"><p className="text-xs font-bold uppercase tracking-[.14em] text-[#0f766e]">Assessment scope</p><div className="mt-2 flex items-end justify-between gap-4"><h2 className="text-xl font-bold text-[#0b1f33]">Data Protection Readiness</h2><span className="text-xs font-medium text-slate-500">Sample assessment scope</span></div></div>
-        <div className="border-y border-slate-200 px-5 sm:px-7">{dashboardItems.map((item, i) => <div key={item} className="grid grid-cols-[2rem_1fr] items-center gap-3 border-b border-slate-100 py-3.5 last:border-b-0"><span className="font-[var(--font-manrope)] text-xs font-bold text-[#0f766e]">{String(i + 1).padStart(2, "0")}</span><span className="text-sm font-semibold text-slate-700">{item}</span></div>)}</div>
-        <div className="bg-[#f8fafc] px-5 py-5 sm:px-7"><div className="flex items-center justify-between gap-4 text-sm"><span className="font-bold text-[#0b1f33]">Compliance readiness review</span><span className="text-xs text-slate-500">Example workflow</span></div><div className="mt-4 grid grid-cols-4 gap-1" aria-label="Four-stage illustrative review process"><span className="h-1.5 bg-[#0f766e]" /><span className="h-1.5 bg-[#0f766e]" /><span className="h-1.5 bg-slate-300" /><span className="h-1.5 bg-slate-300" /></div><div className="mt-2 grid grid-cols-4 gap-1 text-[.62rem] font-semibold uppercase tracking-wide text-slate-500"><span>Discover</span><span>Review</span><span>Prioritise</span><span>Plan</span></div><p className="mt-4 text-xs leading-5 text-slate-500">This illustrates the review process. It is not a visitor score or indication of regulatory approval.</p></div>
-      </div>
-    </Container>
-  </section>;
+  return (
+    <section className="hero-section">
+      <Container className="grid items-center gap-12 lg:grid-cols-[1.02fr_.98fr]">
+        <div>
+          <p className="eyebrow flex items-center gap-2">
+            <ShieldCheck size={15} />Data protection made practical
+          </p>
+          <h1 className="hero-title">Protect your organisation’s data—and the trust behind it.</h1>
+          <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+            Assessments, staff training and hands-on compliance support for organisations across Ghana.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href={whatsappUrl} className="btn btn-primary" target="_blank" rel="noreferrer">
+              Chat with us on WhatsApp <ArrowRight size={18} />
+            </a>
+            <Link href="/services" className="btn btn-secondary">
+              Explore services
+            </Link>
+          </div>
+          <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-slate-600">
+            <span className="flex items-center gap-2">
+              <Check size={16} className="text-[#0f766e]" />Plain-language guidance
+            </span>
+            <span className="flex items-center gap-2">
+              <Check size={16} className="text-[#0f766e]" />On-site & remote
+            </span>
+            <span className="flex items-center gap-2">
+              <Check size={16} className="text-[#0f766e]" />Confidential support
+            </span>
+          </div>
+        </div>
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-50 aspect-[3/2]">
+          <Image
+            src="/images/consultation-hero.svg"
+            alt="A practical data protection consultation in a modern Ghanaian office setting"
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
+      </Container>
+    </section>
+  );
 }
 
-export function TrustStrip() {
-  const items = [[MapPin,"Ghana-focused guidance"],[ClipboardList,"Practical implementation"],[LockKeyhole,"Confidential assessments"],[UserRoundCheck,"Support for growing organisations"]] as const;
-  return <section className="border-y border-slate-200 bg-white" aria-label="Our commitments"><Container className="grid grid-cols-2 lg:grid-cols-4">{items.map(([Icon,label], i) => <div key={label} className={`flex items-center gap-2 border-b border-slate-100 py-4 text-xs font-bold leading-5 text-[#0b1f33] sm:gap-3 sm:text-sm lg:border-b-0 lg:px-5 ${i % 2 ? "border-l pl-3 sm:pl-5" : "pr-3"}`}><Icon size={18} className="shrink-0 text-[#0f766e]" />{label}</div>)}</Container></section>;
+export function IndustriesChips() {
+  return (
+    <section className="bg-slate-50 py-10 border-y border-slate-200">
+      <Container>
+        <p className="text-center text-xs font-extrabold uppercase tracking-widest text-slate-500">
+          Organisations We Support across Ghana
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          {industries.map(({ title, icon: Icon, featured }) => (
+            <div
+              key={title}
+              className={`flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold shadow-sm transition-all hover:scale-105 duration-200 ${
+                featured
+                  ? "bg-amber-50 text-amber-900 border border-amber-200/60"
+                  : "bg-white text-slate-700 border border-slate-200"
+              }`}
+            >
+              <Icon size={16} className={featured ? "text-[#d4a72c]" : "text-[#0f766e]"} />
+              <span>{title}</span>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
 }
 
-export function ComplianceChallenge() {
-  const cards = [
-    [Eye, "Unclear responsibilities", "Many organisations collect personal data without clearly assigning responsibility for how it is obtained, used, stored, shared and deleted."],
-    [FileWarning, "Missing documentation", "Privacy notices, internal policies, consent records, processing registers and incident procedures are often incomplete or unavailable."],
-    [UserRoundCheck, "Limited staff awareness", "Employees may handle personal data every day without sufficient training on confidentiality, security and data subject rights."],
-  ] as const;
-  return <section id="about" className="section-pad bg-white"><Container><SectionHeading label="Why data protection matters" title="Personal data exists in almost every part of your organisation." copy="Customer records, employee files, CVs, student information, financial records, CCTV footage, health details, phone numbers and email addresses are all forms of personal data. Under the Ghana Data Protection Act, 2012 (Act 843), organisations must implement strict safeguards to protect this information, or risk regulatory sanctions, security breaches, and loss of public trust." /><div className="mt-12 grid gap-8 md:grid-cols-3">{cards.map(([Icon,title,copy]) => <article className="border-t-2 border-[#0f766e] pt-6" key={title}><Icon className="text-[#0f766e]" size={22} /><h3 className="mt-5 text-xl font-bold text-[#0b1f33]">{title}</h3><p className="mt-3 text-sm leading-7 text-slate-600">{copy}</p></article>)}</div><p className="mt-10 border-l-4 border-[#d4a72c] pl-5 text-lg font-bold leading-8 text-[#0b1f33]">Data protection should not be treated as paperwork alone. It should become part of everyday operations.</p></Container></section>;
+export function ServicesSection({ preview = false }: { preview?: boolean }) {
+  const [openDeliverable, setOpenDeliverable] = useState<string | null>(null);
+
+  return (
+    <section className="section-pad bg-white">
+      <Container>
+        <SectionHeading
+          label="Our Services"
+          title={preview ? "Make data protection easier to act on" : "Support built around the outcome you need"}
+          copy="Start with the challenge in front of you. We turn complex requirements into clear actions for your organisation."
+        />
+        <div className="mt-12 grid gap-8 lg:grid-cols-3">
+          {serviceGroups.map(({ title, kicker, description, icon: Icon, deliverables }) => (
+            <article className="solution-card flex flex-col justify-between" key={title}>
+              <div>
+                <span className="solution-icon"><Icon size={24} /></span>
+                <p className="mt-7 text-xs font-extrabold uppercase tracking-[.15em] text-[#0f766e]">{kicker}</p>
+                <h3 className="mt-2 text-2xl font-bold text-[#0b1f33]">{title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{description}</p>
+              </div>
+
+              {!preview && (
+                <div className="mt-6 border-t border-slate-200 pt-4">
+                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Key Deliverables</p>
+                  <div className="space-y-3">
+                    {deliverables.map(({ title: delTitle, description: delDesc }) => {
+                      const isOpen = openDeliverable === delTitle;
+                      return (
+                        <div key={delTitle} className="border-b border-slate-100 last:border-0 pb-2 last:pb-0">
+                          <button
+                            type="button"
+                            onClick={() => setOpenDeliverable(isOpen ? null : delTitle)}
+                            className="flex w-full items-center justify-between text-left text-sm font-bold text-[#0b1f33] hover:text-[#0f766e]"
+                          >
+                            <span>{delTitle}</span>
+                            <ChevronDown size={16} className={`transform transition-transform shrink-0 ${isOpen ? "rotate-180" : ""}`} />
+                          </button>
+                          {isOpen && (
+                            <p className="mt-2 text-xs leading-5 text-slate-600 transition-all">
+                              {delDesc}
+                            </p>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
+        {preview && (
+          <div className="mt-10 text-center">
+            <Link href="/services" className="inline-flex items-center gap-2 text-sm font-bold text-[#0f766e] hover:underline">
+              See all service details and deliverables <ArrowRight size={17} />
+            </Link>
+          </div>
+        )}
+      </Container>
+    </section>
+  );
 }
 
-export function ProcessSection() {
-  return <section id="process" className="section-pad bg-[#f8fafc]"><Container><SectionHeading label="Our approach" title="A practical path from awareness to ongoing compliance" /><div className="relative mt-12 grid gap-8 lg:grid-cols-4"><div className="absolute left-[12%] right-[12%] top-6 hidden h-px bg-slate-300 lg:block" aria-hidden="true" />{processSteps.map(({number,title,description,deliverables,icon:Icon}) => <article key={title} className="relative"><span className="relative z-10 grid size-12 place-items-center border border-slate-300 bg-white text-[#0b1f33]"><Icon size={22} /></span><p className="mt-6 text-xs font-extrabold tracking-widest text-[#0f766e]">{number}</p><h3 className="mt-1 text-2xl font-bold text-[#0b1f33]">{title}</h3><p className="mt-3 text-sm leading-7 text-slate-600">{description}</p><ul className="mt-5 grid gap-2">{deliverables.map(item => <li key={item} className="flex gap-2 text-sm text-slate-700"><Check size={16} className="mt-0.5 shrink-0 text-[#0f766e]" />{item}</li>)}</ul></article>)}</div></Container></section>;
+export function ProcessSection({ compact = false }: { compact?: boolean }) {
+  const [activeStep, setActiveStep] = useState<number | null>(null);
+
+  return (
+    <section className="section-pad bg-[#f6f9fb]">
+      <Container>
+        <SectionHeading
+          label="Our process"
+          title="A clear path from uncertainty to action"
+          copy="No intimidating compliance exercise—just a structured process your team can follow."
+        />
+        <div className="process-grid mt-12">
+          {processSteps.map(({ number, title, description, outcome, icon: Icon, deliverables }, index) => {
+            const isExpanded = activeStep === index;
+            return (
+              <article
+                key={title}
+                className="process-card flex flex-col justify-between h-full cursor-pointer transition-all hover:border-[#0f766e] focus-within:ring-2 focus-within:ring-[#0f766e] relative overflow-hidden"
+                onClick={() => setActiveStep(isExpanded ? null : index)}
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="grid size-12 place-items-center rounded-xl bg-[#0b1f33] text-white">
+                      <Icon size={21} />
+                    </span>
+                    <span className="text-xs font-extrabold tracking-widest text-[#0f766e]">{number}</span>
+                  </div>
+                  <h3 className="mt-6 text-xl font-bold text-[#0b1f33]">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
+                </div>
+                
+                <div className="mt-4 pt-4 border-t border-slate-100">
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between text-xs font-bold text-[#0f766e]"
+                  >
+                    <span>{isExpanded ? "Hide deliverables" : "See deliverables"}</span>
+                    <ChevronDown size={14} className={`transform transition-transform ${isExpanded ? "rotate-180" : ""}`} />
+                  </button>
+                  
+                  {isExpanded && (
+                    <ul className="mt-3 space-y-2">
+                      {deliverables.map((item) => (
+                        <li key={item} className="flex gap-2 text-xs text-slate-600">
+                          <Check size={12} className="mt-0.5 text-[#0f766e] shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+                {!compact && (
+                  <p className="mt-4 pt-4 border-t border-slate-100 text-xs font-bold leading-5 text-slate-500">
+                    <span className="text-[#0b1f33] block mb-1 uppercase tracking-wider text-[10px]">Expected Outcome</span>
+                    {outcome}
+                  </p>
+                )}
+              </article>
+            );
+          })}
+        </div>
+      </Container>
+    </section>
+  );
 }
 
-export function ServicesSection() {
-  return <section id="services" className="section-pad bg-white"><Container><SectionHeading label="Services" title="Data protection support designed around your operations" /><div className="mt-12 grid border-t border-slate-300 md:grid-cols-2">{services.map(({title,description}, index) => <article key={title} className="grid grid-cols-[2.25rem_1fr] gap-4 border-b border-slate-200 py-7 md:px-7 md:odd:border-r md:odd:pl-0"><span className="pt-1 font-[var(--font-manrope)] text-xs font-extrabold tracking-wider text-[#0f766e]">{String(index + 1).padStart(2, "0")}</span><div><h3 className="text-lg font-bold leading-6 text-[#0b1f33]">{title}</h3><p className="mt-3 text-sm leading-7 text-slate-600">{description}</p></div></article>)}</div><p className="mt-8 border-l-2 border-[#d4a72c] pl-4 text-sm font-semibold text-[#0b1f33]">Services are tailored to the size, sector, risk level and operational needs of each organisation.</p></Container></section>;
+export function VerifiedProofSection() {
+  const hasTestimonials = verifiedProof.testimonials && verifiedProof.testimonials.length > 0;
+  const hasStatistics = verifiedProof.statistics && verifiedProof.statistics.length > 0;
+
+  if (!hasTestimonials && !hasStatistics) {
+    return null; // Render absolutely nothing when verified proof data is absent
+  }
+
+  return (
+    <section className="section-pad bg-white border-y border-slate-100">
+      <Container>
+        <SectionHeading
+          label="Proven Results"
+          title="Verified Trust & Impact"
+          copy="Our client satisfaction and compliance track record, thoroughly verified and approved."
+        />
+        {/* Statistics Grid */}
+        {hasStatistics && (
+          <div className="grid gap-6 md:grid-cols-3 mt-10">
+            {verifiedProof.statistics.map(({ value, label }) => (
+              <div key={label} className="text-center p-6 border border-slate-100 rounded-xl bg-slate-50">
+                <span className="text-4xl font-extrabold text-[#0f766e]">{value}</span>
+                <p className="mt-2 text-sm text-slate-600 font-bold">{label}</p>
+              </div>
+            ))}
+          </div>
+        )}
+        {/* Testimonials Grid */}
+        {hasTestimonials && (
+          <div className="grid gap-6 md:grid-cols-2 mt-10">
+            {verifiedProof.testimonials.map(({ quote, author, role, organisation }) => (
+              <blockquote key={author} className="p-6 border border-slate-100 rounded-xl bg-white shadow-sm">
+                <p className="text-sm italic leading-7 text-slate-600">&quot;{quote}&quot;</p>
+                <cite className="mt-4 block not-italic">
+                  <strong className="text-sm font-bold text-[#0b1f33] block">{author}</strong>
+                  <span className="text-xs text-slate-500">{role}, {organisation}</span>
+                </cite>
+              </blockquote>
+            ))}
+          </div>
+        )}
+      </Container>
+    </section>
+  );
 }
 
-export function IndustriesSection() {
-  return <section id="industries" className="section-pad bg-[#f8fafc]"><Container><SectionHeading label="Who we support" title="Built for organisations that handle valuable personal information" /><div className="mt-12 grid gap-px overflow-hidden border border-slate-200 bg-slate-200 md:grid-cols-2 lg:grid-cols-3">{industries.map(({title,description,icon:Icon,featured}) => <article key={title} className={`p-6 ${featured ? "bg-[#0b1f33] text-white lg:col-span-2 lg:grid lg:grid-cols-[1fr_auto] lg:gap-10" : "bg-white"}`}><div>{featured && <p className="mb-5 text-xs font-bold uppercase tracking-[.14em] text-[#e4bd51]">Primary sector focus</p>}<Icon size={24} className={featured ? "text-[#e4bd51]" : "text-[#0f766e]"} /><h3 className={`mt-5 text-xl font-bold ${featured ? "text-white" : "text-[#0b1f33]"}`}>{title}</h3><p className={`mt-3 text-sm leading-7 ${featured ? "max-w-2xl text-slate-300" : "text-slate-600"}`}>{description}</p></div>{featured && <a href="#contact" className="mt-6 inline-flex items-center gap-2 self-end text-sm font-bold text-white hover:text-[#e4bd51] lg:mt-0">Discuss an assessment <ArrowRight size={17} /></a>}</article>)}</div><a href="#contact" className="btn btn-primary mt-9">Discuss Your Organisation’s Needs <ArrowRight size={18} /></a></Container></section>;
+export function IndustriesSection({ preview = false }: { preview?: boolean }) {
+  const shown = preview ? industries.slice(0, 6) : industries;
+  return (
+    <section className="section-pad bg-[#0b1f33] text-white">
+      <Container>
+        <SectionHeading
+          light
+          label="Who we support"
+          title="Built for organisations entrusted with people’s information"
+          copy="Every sector handles different risks. Our guidance starts with how your organisation really works."
+        />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {shown.map(({ title, description, icon: Icon, featured }) => (
+            <article className={`industry-card ${featured ? "industry-card-featured" : ""}`} key={title}>
+              <Icon size={23} />
+              <h3 className="mt-5 text-lg font-bold">{title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-300">{description}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-9 flex flex-wrap items-center gap-4">
+          {preview && (
+            <Link href="/industries" className="btn btn-light">
+              Explore industries <ArrowRight size={18} />
+            </Link>
+          )}
+          <a href={whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-white hover:underline">
+            Not sure where you fit? Talk to us <ArrowRight size={17} />
+          </a>
+        </div>
+      </Container>
+    </section>
+  );
 }
 
-export function WhyDataGuard() {
-  const benefits = [["Local context","Our approach reflects how Ghanaian organisations operate and aligns with the regulatory standards set by the Data Protection Commission (DPC)."],["Practical implementation","We go beyond explaining requirements by helping organisations turn recommendations into working procedures and documents."],["Right-sized support","Recommendations are prioritised according to the organisation’s size, risks, resources and stage of compliance maturity."],["Long-term improvement","We help organisations develop repeatable practices instead of relying on one-time compliance exercises."]] as const;
-  return <section className="section-pad bg-[#0b1f33]"><Container><SectionHeading light label="Why DataGuard Ghana" title="Practical guidance your organisation can put into operation" /><div className="mt-12 grid border-y border-white/15 sm:grid-cols-2">{benefits.map(([title,copy], i) => <article key={title} className="border-b border-white/15 py-7 sm:px-7 sm:odd:border-r"><span className="text-xs font-bold tracking-widest text-[#e4bd51]">0{i+1}</span><h3 className="mt-3 text-xl font-bold text-white">{title}</h3><p className="mt-3 text-sm leading-7 text-slate-300">{copy}</p></article>)}</div><div className="mt-10 max-w-4xl border-l-4 border-[#d4a72c] pl-6"><blockquote className="font-[var(--font-manrope)] text-lg font-semibold leading-8 text-white">“DataGuard Ghana helped us understand our obligations under Act 843 in plain language. Their readiness assessment was practical, completed within weeks, and designed around our existing banking operations.”</blockquote><cite className="mt-3 block text-sm font-bold not-italic text-[#e4bd51]">— General Manager, Rural and Community Bank</cite></div></Container></section>;
+export function AboutSection() {
+  return (
+    <section className="section-pad bg-white">
+      <Container className="grid items-center gap-14 lg:grid-cols-2">
+        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-50 aspect-[3/2]">
+          <Image
+            src="/images/staff-training.svg"
+            alt="DataGuard interactive staff training and data protection workshop"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div>
+          <SectionHeading
+            label="About DataGuard"
+            title="Compliance should work in the real world"
+            copy="We believe data protection is about more than ticking boxes. It is about building trust with customers, supporting your teams, and protecting the reputation of your organisation with practical, daily habits."
+          />
+          
+          <div className="mt-8 space-y-6">
+            <div>
+              <h3 className="text-lg font-bold text-[#0b1f33] flex items-center gap-2">
+                <Sparkles size={18} className="text-[#0f766e]" /> Our Mission
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                To simplify data protection for Ghanaian organisations, transforming complex legal requirements into clear, practical guidelines that fit your everyday operations.
+              </p>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-bold text-[#0b1f33] flex items-center gap-2">
+                <ShieldCheck size={18} className="text-[#0f766e]" /> Our Approach
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                We don&apos;t use intimidating jargon or sell one-size-fits-all templates. We assess your unique risks, educate your people, and help you implement routines that become second nature.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
 }
 
 export function ReadinessChecklist() {
-  return <section className="section-pad bg-white"><Container className="grid gap-12 lg:grid-cols-[.75fr_1.25fr]"><div><SectionHeading label="Readiness assessment" title="How ready is your organisation?" copy="Your organisation may need a data protection review if any of the following statements apply." /><a href="#contact" className="btn btn-primary mt-7">Book a Readiness Assessment <ArrowRight size={18} /></a></div><div className="border-y border-slate-300 py-6"><ul className="grid gap-4">{readinessItems.map(item => <li key={item} className="flex gap-3 text-sm leading-6 text-slate-700"><span className="mt-0.5 grid size-5 shrink-0 place-items-center border border-emerald-300 bg-emerald-50"><Check size={13} className="text-[#0f766e]" /></span>{item}</li>)}</ul><p className="mt-6 border-t border-slate-200 pt-5 text-xs leading-5 text-slate-500">An assessment helps identify priorities. It is not a guarantee of regulatory approval or complete legal compliance.</p></div></Container></section>;
+  return (
+    <section className="section-pad bg-white">
+      <Container className="grid gap-12 lg:grid-cols-[.72fr_1.28fr]">
+        <div>
+          <SectionHeading
+            label="2-minute readiness check"
+            title="Could important gaps be hiding in plain sight?"
+            copy="Answer five quick questions to see which next step may suit your organisation."
+          />
+        </div>
+        <ReadinessQuiz />
+      </Container>
+    </section>
+  );
+}
+
+export function FinalWhatsAppCTA() {
+  return (
+    <section className="bg-[#0b1f33] py-16 text-white border-t border-slate-850">
+      <Container className="text-center">
+        <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+          Ready to make your organisation secure?
+        </h2>
+        <p className="mx-auto mt-4 max-w-xl text-lg text-slate-300">
+          Skip the complex manuals. Start a direct, confidential conversation with us on WhatsApp today.
+        </p>
+        <div className="mt-8 flex justify-center">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-primary bg-[#0f766e] hover:bg-[#0b615b] !text-white flex items-center gap-2 text-base px-6 py-3"
+          >
+            <MessageCircle size={20} />
+            Chat with us on WhatsApp
+          </a>
+        </div>
+      </Container>
+    </section>
+  );
 }
 
 export function ContactSection() {
-  return <section id="contact" className="section-pad bg-[#f1f5f9]"><Container className="grid gap-12 lg:grid-cols-[.78fr_1.22fr]"><div><SectionHeading label="Request a consultation" title="Start strengthening your organisation’s data protection practices" copy="Tell us about your organisation and the support you need. We will use the information to prepare for an initial discussion." /><address className="mt-8 grid gap-4 not-italic"><a href="tel:+233245052539" className="flex items-center gap-3 font-semibold text-[#0b1f33] hover:text-[#0f766e]"><Phone size={20} className="text-[#0f766e]" />Phone and WhatsApp: +233 24 505 2539</a><p className="flex items-center gap-3 text-slate-700"><MapPin size={20} className="text-[#0f766e]" />Location: Ghana</p><p className="flex items-center gap-3 text-slate-700"><MessageCircle size={20} className="text-[#0f766e]" />Service delivery: On-site and remote support</p><a href="mailto:enquiry@dataguardghana.com" className="flex items-center gap-3 text-slate-700 hover:text-[#0f766e]"><span className="grid size-5 place-items-center text-[#0f766e]">@</span>enquiry@dataguardghana.com</a></address></div><ConsultationForm /></Container></section>;
+  return (
+    <section className="section-pad bg-[#f5f8fa]">
+      <Container className="grid gap-12 lg:grid-cols-[.9fr_1.1fr]">
+        <div>
+          <SectionHeading
+            label="Start a conversation"
+            title="Tell us what your organisation needs"
+            copy="No lengthy form. Start a private WhatsApp conversation and we’ll help you work out the right next step."
+          />
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href={whatsappUrl} target="_blank" rel="noreferrer" className="btn btn-primary">
+              <MessageCircle size={19} />Chat with us on WhatsApp
+            </a>
+            <a href="tel:+233245052539" className="btn btn-secondary">
+              <Phone size={18} />Call us
+            </a>
+          </div>
+        </div>
+        <aside className="contact-panel">
+          <p className="eyebrow !text-[#e4bd51]">Contact details</p>
+          <div className="mt-7 grid gap-6">
+            <a href="tel:+233245052539" className="contact-line">
+              <Phone />
+              <span>
+                <small>Phone & WhatsApp</small>
+                <strong>+233 24 505 2539</strong>
+              </span>
+            </a>
+            <a href="mailto:enquiry@dataguardghana.com" className="contact-line">
+              <Mail />
+              <span>
+                <small>Email</small>
+                <strong>enquiry@dataguardghana.com</strong>
+              </span>
+            </a>
+            <div className="contact-line">
+              <MapPin />
+              <span>
+                <small>Delivery</small>
+                <strong>On-site and remote support</strong>
+              </span>
+            </div>
+          </div>
+        </aside>
+      </Container>
+    </section>
+  );
 }

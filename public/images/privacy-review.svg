@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#051c24" />
+      <stop offset="60%" stop-color="#0a323e" />
+      <stop offset="100%" stop-color="#0c1f33" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e4bd51" />
+      <stop offset="100%" stop-color="#b88d1d" />
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="400" rx="24" fill="url(#bgGrad)" />
+
+  <!-- Background Orbs -->
+  <circle cx="500" cy="100" r="120" fill="#0f766e" opacity="0.15" filter="blur(25px)" />
+  <circle cx="100" cy="300" r="100" fill="#e4bd51" opacity="0.08" filter="blur(20px)" />
+
+  <!-- Grid overlay -->
+  <g opacity="0.03">
+    <path d="M 0,50 L 600,50 M 0,100 L 600,100 M 0,150 L 600,150 M 0,200 L 600,200 M 0,250 L 600,250 M 0,300 L 600,300 M 0,350 L 600,350" stroke="#ffffff" stroke-width="1" />
+    <path d="M 50,0 L 50,400 M 100,0 L 100,400 M 150,0 L 150,400 M 200,0 L 200,400 M 250,0 L 250,400 M 300,0 L 300,400 M 350,0 L 350,400 M 400,0 L 400,400 M 450,0 L 450,400 M 500,0 L 500,400 M 550,0 L 550,400" stroke="#ffffff" stroke-width="1" />
+  </g>
+
+  <g transform="translate(10, 0)">
+    <!-- Central Mobile Device (Safe FinTech App representation) -->
+    <g transform="translate(230, 60)" filter="url(#softShadow)">
+      <!-- Phone Body -->
+      <rect x="0" y="0" width="140" height="280" rx="22" fill="#1e293b" stroke="#475569" stroke-width="3" />
+      <!-- Screen Inner -->
+      <rect x="6" y="8" width="128" height="264" rx="16" fill="#0b1329" />
+      <!-- Speaker -->
+      <rect x="50" y="14" width="40" height="4" rx="2" fill="#475569" />
+
+      <!-- FinTech Dashboard Content -->
+      <text x="18" y="44" fill="#ffffff" font-family="system-ui, sans-serif" font-size="10" font-weight="extrabold" letter-spacing="0.5">DG BANK</text>
+      <!-- User Profile Pic placeholder -->
+      <circle cx="110" cy="40" r="7" fill="#e4bd51" />
+
+      <!-- Balance Card Group -->
+      <g transform="translate(14, 60)">
+        <rect x="0" y="0" width="112" height="60" rx="8" fill="url(#tealGrad)" />
+        <circle cx="20" cy="20" r="8" fill="#ffffff" opacity="0.3" />
+        <circle cx="30" cy="20" r="8" fill="#ffffff" opacity="0.2" />
+        <!-- Balance numbers representation -->
+        <rect x="12" y="38" width="50" height="5" rx="2.5" fill="#ffffff" />
+        <rect x="12" y="47" width="25" height="3" rx="1.5" fill="#ffffff" opacity="0.6" />
+        <circle cx="95" cy="45" r="4" fill="#e4bd51" />
+      </g>
+
+      <!-- Transaction records (to show data mapping of financial records) -->
+      <g transform="translate(14, 134)">
+        <rect x="0" y="0" width="112" height="110" rx="8" fill="#0f172a" stroke="#1e293b" />
+        <!-- Record 1 -->
+        <circle cx="14" cy="18" r="6" fill="#e4bd51" />
+        <rect x="26" y="12" width="50" height="4" rx="2" fill="#ffffff" opacity="0.8" />
+        <rect x="26" y="20" width="30" height="3" rx="1.5" fill="#94a3b8" />
+        <rect x="90" y="15" width="12" height="4" rx="2" fill="#2dd4bf" />
+        <!-- Record 2 -->
+        <circle cx="14" cy="38" r="6" fill="#38bdf8" />
+        <rect x="26" y="32" width="45" height="4" rx="2" fill="#ffffff" opacity="0.8" />
+        <rect x="26" y="40" width="20" height="3" rx="1.5" fill="#94a3b8" />
+        <rect x="90" y="35" width="12" height="4" rx="2" fill="#2dd4bf" />
+        <!-- Record 3 (Suspicious or reviewed) -->
+        <circle cx="14" cy="58" r="6" fill="#ef4444" opacity="0.8" />
+        <rect x="26" y="52" width="40" height="4" rx="2" fill="#ffffff" opacity="0.8" />
+        <rect x="26" y="60" width="35" height="3" rx="1.5" fill="#94a3b8" />
+        <rect x="90" y="55" width="12" height="4" rx="2" fill="#ef4444" opacity="0.8" />
+
+        <!-- Security Badge at bottom of device dashboard -->
+        <g transform="translate(10, 80)">
+          <rect x="0" y="0" width="92" height="22" rx="4" fill="#0f766e" opacity="0.3" />
+          <path d="M 12,6 C 15,3 18,3 20,6 C 20,11 18,15 12,18 C 6,15 4,11 4,6 C 6,3 9,3 12,6 Z" fill="#2dd4bf" transform="scale(0.8) translate(4, 2)" />
+          <rect x="26" y="8" width="54" height="4" rx="2" fill="#2dd4bf" />
+        </g>
+      </g>
+    </g>
+
+    <!-- Financial Services / Bank Safe Illustration (Left Side) -->
+    <g transform="translate(60, 120)" filter="url(#softShadow)">
+      <!-- Safe Outer -->
+      <rect x="0" y="0" width="110" height="130" rx="12" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2" />
+      <rect x="10" y="10" width="90" height="110" rx="6" fill="#94a3b8" />
+      <!-- Safe dial -->
+      <circle cx="55" cy="65" r="24" fill="#334155" />
+      <circle cx="55" cy="65" r="16" fill="#e2e8f0" />
+      <circle cx="55" cy="65" r="8" fill="#1e293b" />
+      <!-- Safe Dial Marks -->
+      <line x1="55" y1="45" x2="55" y2="49" stroke="#1e293b" stroke-width="2" />
+      <line x1="55" y1="81" x2="55" y2="85" stroke="#1e293b" stroke-width="2" />
+      <line x1="35" y1="65" x2="39" y2="65" stroke="#1e293b" stroke-width="2" />
+      <line x1="71" y1="65" x2="75" y2="65" stroke="#1e293b" stroke-width="2" />
+    </g>
+
+    <!-- Floating Shield of Compliance & Protection (Right Side) -->
+    <g transform="translate(420, 110)" filter="url(#softShadow)">
+      <path d="M 0,0 C 18,-12 42,-12 60,0 C 60,30 48,66 0,84 C -48,66 -60,30 -60,0 C -42,-12 -18,-12 0,0 Z" fill="url(#goldGrad)" />
+      <!-- Inner Shield Stroke -->
+      <path d="M 0,6 C 14,-5 34,-5 48,6 C 48,30 38,59 0,74 C -38,59 -48,30 -48,6 C -34,-5 -14,-5 0,6 Z" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.6" />
+      <!-- Checkmark -->
+      <path d="M -16,36 L -4,48 L 18,20" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- Connection Lines Mapping Vault and Shield to Mobile App -->
+    <g opacity="0.4">
+      <path d="M 170,185 Q 200,160 230,160" fill="none" stroke="#e4bd51" stroke-width="2" stroke-dasharray="6,4" />
+      <path d="M 370,210 Q 400,210 420,180" fill="none" stroke="#2dd4bf" stroke-width="2" stroke-dasharray="6,4" />
+      <circle cx="170" cy="185" r="5" fill="#e4bd51" />
+      <circle cx="420" cy="180" r="5" fill="#2dd4bf" />
+    </g>
+  </g>
+</svg>

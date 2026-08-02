@@ -1,75 +1,210 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Building2, ClipboardCheck, FileSearch, GraduationCap, HeartPulse,
-  Hotel, Landmark, LifeBuoy, Network, School, SearchCheck,
-  Settings, ShieldCheck, Users, Workflow,
+  Building2, ClipboardCheck, FileCheck2, GraduationCap, HeartPulse, Hotel,
+  Landmark, LifeBuoy, School, SearchCheck, Settings,
+  Users, Workflow,
 } from "lucide-react";
 
-export type ProcessStep = { number: string; title: string; description: string; deliverables: string[]; icon: LucideIcon };
+export type Deliverable = { title: string; description: string };
+export type ProcessStep = { number: string; title: string; icon: LucideIcon; description: string; outcome: string; deliverables: string[] };
 export type CardItem = { title: string; description: string; icon: LucideIcon; featured?: boolean };
-export type FAQ = { question: string; answer: string };
+export type ServiceGroup = { title: string; kicker: "Assess" | "Educate" | "Implement & support"; description: string; icon: LucideIcon; deliverables: Deliverable[] };
+export type FAQ = { question: string; answer: string; category: "Getting started" | "Working with us" };
+
+export type Testimonial = { quote: string; author: string; role: string; organisation: string };
+export type Statistic = { value: string; label: string };
+export type VerifiedProof = { testimonials: Testimonial[]; statistics: Statistic[] };
 
 export const processSteps: ProcessStep[] = [
-  { number: "01", title: "Educate", icon: GraduationCap, description: "We explain the organisation’s responsibilities in clear language and provide role-specific awareness training for management and staff.", deliverables: ["Executive briefings", "Staff awareness sessions", "Department-specific guidance", "Data protection induction materials"] },
-  { number: "02", title: "Assess", icon: SearchCheck, description: "We review how personal data is collected, used, stored, accessed, shared and retained across the organisation.", deliverables: ["Compliance gap assessment", "Data inventory", "Processing activity review", "Risk identification", "Readiness report"] },
-  { number: "03", title: "Implement", icon: Settings, description: "We help the organisation introduce practical policies, notices, processes and controls based on the risks identified.", deliverables: ["Privacy notices", "Internal data protection policy", "Data retention schedule", "Consent and request procedures", "Incident and breach response process", "Processor and supplier review documents"] },
-  { number: "04", title: "Support", icon: LifeBuoy, description: "We provide continued assistance as the organisation improves its privacy programme and responds to new operational needs.", deliverables: ["Periodic compliance reviews", "Staff refresher sessions", "Documentation updates", "Data subject request support", "Ongoing advisory services"] },
+  {
+    number: "01",
+    title: "Discover",
+    icon: SearchCheck,
+    description: "We learn how your organisation handles personal data.",
+    outcome: "A clear view of your current position",
+    deliverables: ["Review of existing documents", "Interviews with key team leaders", "Mapping of core data flows"],
+  },
+  {
+    number: "02",
+    title: "Prioritise",
+    icon: ClipboardCheck,
+    description: "We identify the gaps that matter most and rank the risks.",
+    outcome: "A practical, prioritised action plan",
+    deliverables: ["Detailed findings report", "Practical risk prioritisation list", "Briefing session for leadership"],
+  },
+  {
+    number: "03",
+    title: "Put it in place",
+    icon: Settings,
+    description: "We help build the policies, processes and staff habits you need.",
+    outcome: "Controls that work in daily operations",
+    deliverables: ["Plain-language policy documents", "Internal process templates", "Actionable staff guidelines"],
+  },
+  {
+    number: "04",
+    title: "Keep improving",
+    icon: LifeBuoy,
+    description: "We review progress and support your team as needs change.",
+    outcome: "A programme that stays useful",
+    deliverables: ["Regular progress check-ins", "Updates on changing regulations", "Advisory support for new systems"],
+  },
 ];
 
-export const services: CardItem[] = [
-  { title: "Data Protection Readiness Assessment", icon: ClipboardCheck, description: "A structured review of current practices, documentation, risks and compliance needs under the Ghana Data Protection Act, 2012 (Act 843)." },
-  { title: "Data Mapping and Inventory", icon: Network, description: "Identify the personal data you collect, where it comes from, why it is used, who can access it and where it is stored." },
-  { title: "Policies and Privacy Notices", icon: FileSearch, description: "Develop or review practical privacy notices, internal policies, retention schedules and data-handling procedures." },
-  { title: "Staff Awareness Training", icon: GraduationCap, description: "Practical training on confidentiality, secure data handling, individual rights and incident reporting." },
-  { title: "Data Protection Impact Assessments", icon: SearchCheck, description: "Assess projects or processing activities that may create significant privacy risks." },
-  { title: "Data Subject Request Procedures", icon: Users, description: "Create processes for receiving, verifying, tracking and responding to requests involving applicable individual rights." },
-  { title: "Data Breach Preparedness", icon: ShieldCheck, description: "Develop internal reporting, escalation, investigation and response procedures for suspected personal data breaches." },
-  { title: "Ongoing Compliance Support", icon: LifeBuoy, description: "Periodic reviews, document updates, mandatory DPC registration and renewal assistance, and practical guidance for organisations." },
+export const serviceGroups: ServiceGroup[] = [
+  {
+    title: "Find your risks",
+    kicker: "Assess",
+    icon: SearchCheck,
+    description: "Understand what data you hold, where it goes and which gaps need attention first.",
+    deliverables: [
+      {
+        title: "Readiness assessment",
+        description: "A comprehensive review of your activities and documentation to identify your primary compliance risks.",
+      },
+      {
+        title: "Data mapping and inventory",
+        description: "A clear map detailing exactly what personal data you collect, why you use it, and where it is stored.",
+      },
+      {
+        title: "Privacy impact assessments",
+        description: "A formal evaluation to spot and mitigate privacy risks before introducing new software, systems, or vendors.",
+      },
+    ],
+  },
+  {
+    title: "Build confident teams",
+    kicker: "Educate",
+    icon: GraduationCap,
+    description: "Give leaders and staff clear, role-specific guidance they can use at work.",
+    deliverables: [
+      {
+        title: "Staff awareness training",
+        description: "Interactive sessions teaching your team practical and secure habits for handling personal data daily.",
+      },
+      {
+        title: "Leadership briefings",
+        description: "Concise, non-technical briefings updating decision-makers on their legal duties and strategic data protection.",
+      },
+    ],
+  },
+  {
+    title: "Make compliance practical",
+    kicker: "Implement & support",
+    icon: FileCheck2,
+    description: "Turn recommendations into working documents, routines and ongoing support.",
+    deliverables: [
+      {
+        title: "Policies and privacy notices",
+        description: "Custom, plain-language documents written to match your organisation's real daily operating practices.",
+      },
+      {
+        title: "Request and breach procedures",
+        description: "Clear, step-by-step internal routines to help your team manage data requests or incidents calmly.",
+      },
+      {
+        title: "Ongoing advisory support",
+        description: "Professional, ad-hoc guidance whenever your team has questions about compliance, vendors, or rights.",
+      },
+    ],
+  },
 ];
 
 export const industries: CardItem[] = [
-  { title: "Rural and Community Banks", icon: Landmark, featured: true, description: "Support for customer records, account opening, employee information, loan documentation, CCTV, third-party providers and digital banking." },
-  { title: "Savings, Loans and Microfinance", icon: Building2, description: "Practical controls for borrower information, guarantor details, credit assessments, mobile communications, collections and verification." },
-  { title: "Schools and Educational Institutions", icon: School, description: "Support for student and parent records, admissions, staff files, reports, photographs, online learning and safeguarding information." },
-  { title: "Healthcare Organisations", icon: HeartPulse, description: "Guidance for patient records, appointments, health data, employee information and third-party service providers." },
-  { title: "Churches and Nonprofits", icon: Users, description: "Support for membership databases, donors, registrations, counselling records, volunteers and beneficiary information." },
-  { title: "Hotels and Hospitality", icon: Hotel, description: "Guidance for guest records, bookings, identification documents, payments, CCTV, Wi-Fi access and employee information." },
-  { title: "SMEs and Technology Companies", icon: Workflow, description: "Privacy foundations for customer accounts, websites, applications, employees, analytics, cloud systems and international users." },
+  {
+    title: "Rural & community banks",
+    icon: Landmark,
+    featured: true,
+    description: "Securing customer banking records, credit history, CCTV logs, employee files, and digital banking platforms.",
+  },
+  {
+    title: "Savings & microfinance",
+    icon: Building2,
+    description: "Protecting borrower details, guarantor agreements, mobile collections data, and credit bureau filings.",
+  },
+  {
+    title: "Schools",
+    icon: School,
+    description: "Safeguarding sensitive student directories, parent contacts, academic grades, and learning software logs.",
+  },
+  {
+    title: "Healthcare",
+    icon: HeartPulse,
+    description: "Securing delicate patient folders, consultation notes, appointment scheduling, and supplier records.",
+  },
+  {
+    title: "Churches & nonprofits",
+    icon: Users,
+    description: "Protecting member lists, donor financial records, volunteer directories, and welfare case records safely.",
+  },
+  {
+    title: "Hotels & hospitality",
+    icon: Hotel,
+    description: "Managing guest reservation lists, credit card transactions, CCTV coverage, and secure guest Wi-Fi logs.",
+  },
+  {
+    title: "SMEs & technology",
+    icon: Workflow,
+    description: "Securing customer user databases, mobile app analytics, cloud storage tools, and remote developer team logs.",
+  },
 ];
 
 export const faqs: FAQ[] = [
-  { question: "What is personal data?", answer: "Personal data is information that identifies a person directly or can be combined with other information to identify them. Examples include names, telephone numbers, email addresses, identification numbers, photographs, financial information, location data and employee or customer records." },
-  { question: "Does data protection apply only to large companies?", answer: "No. Any organisation that collects or uses personal data may have data protection responsibilities, regardless of its size." },
-  { question: "What happens during a readiness assessment?", answer: "We review the organisation’s activities, documentation, systems and data-handling practices. We then provide a prioritised report showing strengths, gaps, risks and recommended next steps." },
-  { question: "Do you provide staff training?", answer: "Yes. Training can be delivered to management, general staff or specific departments based on their responsibilities." },
-  { question: "Can you prepare policies and privacy notices?", answer: "Yes. We can develop new documents or review existing ones to ensure they reflect the organisation’s actual operations." },
-  { question: "Can DataGuard Ghana act as our Data Protection Officer?", answer: "DataGuard Ghana can discuss ongoing advisory and data protection support arrangements based on the organisation’s needs, structure and applicable requirements. The appropriate arrangement will be determined after an initial consultation." },
-  { question: "Do you guarantee that an organisation is fully compliant?", answer: "No consultant can responsibly guarantee complete compliance based on a single review. We identify gaps, recommend practical improvements and support the organisation in building and maintaining stronger data protection practices." },
-  { question: "Is our information kept confidential?", answer: "Information shared during an engagement will be handled confidentially and used only for delivering the agreed services, subject to the applicable engagement terms." },
+  {
+    category: "Getting started",
+    question: "Does data protection apply to a small organisation?",
+    answer: "Yes. If your organisation collects, holds, or uses information about individuals, it is likely to have data protection responsibilities regardless of its size.",
+  },
+  {
+    category: "Getting started",
+    question: "What happens during a readiness assessment?",
+    answer: "We review your operations, review your existing documentation, and assess staff habits. We then deliver a clear, actionable gap analysis report.",
+  },
+  {
+    category: "Getting started",
+    question: "What is personal data?",
+    answer: "Any information that identifies a person, such as names, phone numbers, email addresses, national IDs, photos, bank details, or location data.",
+  },
+  {
+    category: "Working with us",
+    question: "Can you train our staff?",
+    answer: "Yes. We deliver targeted, practical training tailored for executive boards, department managers, or general front-office staff.",
+  },
+  {
+    category: "Working with us",
+    question: "Can you prepare policies and privacy notices?",
+    answer: "Yes. We write or refine operational documents and notices to ensure they reflect your actual data practices in plain, direct language.",
+  },
+  {
+    category: "Working with us",
+    question: "Do you guarantee complete compliance?",
+    answer: "No. Compliance is an ongoing process of improvement. We identify gaps and build practical, repeatable routines that keep risk low.",
+  },
+  {
+    category: "Working with us",
+    question: "Is our information kept confidential?",
+    answer: "Absolutely. All engagement notes, client details, and shared documents are protected with strict professional confidentiality.",
+  },
 ];
 
-export const readinessItems = [
-  "We are not registered with the Data Protection Commission (DPC) as a data controller.",
-  "We do not have a complete record of the personal data we hold and process.",
-  "Our privacy notice has not been reviewed recently.",
-  "Staff members have not received formal data protection training under Act 843.",
-  "We are unsure how long different records should be retained.",
-  "We do not have a documented process for personal data requests.",
-  "We use third-party vendors without reviewing their data-handling practices.",
-  "We do not have a clear personal data breach response procedure.",
-  "New systems or projects are introduced without a privacy risk assessment.",
-  "Responsibility for data protection is not clearly assigned.",
-];
-
-export const navItems = [
-  ["About", "about"], ["Process", "process"], ["Services", "services"],
-  ["Industries", "industries"], ["FAQs", "faqs"], ["Contact", "contact"],
+export const quizQuestions = [
+  "We do not have a complete record of the personal data we use.",
+  "Our privacy notices or internal policies are missing or out of date.",
+  "Staff have not received formal data protection training recently.",
+  "We do not have a documented process for data requests or breaches.",
+  "New systems and suppliers are introduced without a privacy review.",
 ] as const;
 
-export const formOptions = {
-  organisations: ["Rural or Community Bank", "Savings and Loans", "Microfinance Institution", "School or Educational Institution", "Healthcare Organisation", "Church or Religious Organisation", "Hotel or Hospitality Business", "NGO or Nonprofit", "Technology Company", "Other SME"],
-  employees: ["1–10", "11–25", "26–50", "51–100", "101–250", "251+", "Not sure"],
-  services: ["Data Protection Readiness Assessment", "Staff Training", "Policies and Privacy Notices", "Data Mapping and Inventory", "Data Protection Impact Assessment", "Data Breach Preparedness", "Ongoing Compliance Support", "Not Sure Yet"],
-};
+export const navItems = [
+  ["Home", ""],
+  ["Services", "services"],
+  ["Industries", "industries"],
+  ["How It Works", "process"],
+  ["About", "about"],
+  ["Contact", "contact"],
+] as const;
 
-export const dashboardItems = ["Policies and notices", "Staff awareness", "Data inventory", "Risk assessment", "Data subject requests", "Security and breach procedures"];
+// Verified proof data. Keep empty unless approved to prevent showing empty section.
+export const verifiedProof: VerifiedProof = {
+  testimonials: [],
+  statistics: [],
+};
