@@ -1,119 +1,243 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b1f33" />
-      <stop offset="60%" stop-color="#124b5b" />
-      <stop offset="100%" stop-color="#0f766e" />
-    </linearGradient>
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#e4bd51" />
-      <stop offset="100%" stop-color="#c59b27" />
-    </linearGradient>
-    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2dd4bf" />
-      <stop offset="100%" stop-color="#0f766e" />
-    </linearGradient>
-    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.25" />
-    </filter>
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0b1f33" flood-opacity="0.15" />
-    </filter>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <!-- Base Background Canvas (Seamless light-themed editorial backdrop) -->
+  <rect width="800" height="500" fill="#f8fafc" />
 
-  <!-- Background Base -->
-  <rect width="600" height="400" rx="24" fill="url(#bgGrad)" />
+  <!-- Clean, Minimal Room Architecture -->
+  <!-- Floor Horizon Line dividing wall and floor -->
+  <line x1="0" y1="410" x2="800" y2="410" stroke="#cbd5e1" stroke-width="1.5" />
+  <!-- Soft, flat flooring segment -->
+  <rect y="411" width="800" height="89" fill="#f1f5f9" />
 
-  <!-- Background Abstract Orbs -->
-  <circle cx="550" cy="50" r="120" fill="#e4bd51" opacity="0.12" filter="blur(20px)" />
-  <circle cx="50" cy="350" r="100" fill="#2dd4bf" opacity="0.15" filter="blur(15px)" />
-
-  <!-- Grid Pattern Overlay -->
-  <g opacity="0.05">
-    <path d="M 0,50 L 600,50 M 0,100 L 600,100 M 0,150 L 600,150 M 0,200 L 600,200 M 0,250 L 600,250 M 0,300 L 600,300 M 0,350 L 600,350" stroke="#ffffff" stroke-width="1" />
-    <path d="M 50,0 L 50,400 M 100,0 L 100,400 M 150,0 L 150,400 M 200,0 L 200,400 M 250,0 L 250,400 M 300,0 L 300,400 M 350,0 L 350,400 M 400,0 L 400,400 M 450,0 L 450,400 M 500,0 L 500,400 M 550,0 L 550,400" stroke="#ffffff" stroke-width="1" />
+  <!-- Tasteful Office Wall Decor: Framed Adinkra 'Eban' Art Piece (Authentic security symbol) -->
+  <!-- Elegant minimalist wooden frame -->
+  <rect x="340" y="50" width="120" height="120" rx="4" fill="#78350f" />
+  <!-- Gallery paper matte -->
+  <rect x="346" y="56" width="108" height="108" fill="#ffffff" />
+  <!-- Deep corporate teal art background -->
+  <rect x="360" y="70" width="80" height="80" rx="2" fill="#0f766e" />
+  
+  <!-- Eban (Fence) Adinkra Symbol in Warm Gold - represents safety, security, and protection -->
+  <g transform="translate(400, 110)">
+    <!-- Outer gold square border -->
+    <rect x="-19" y="-19" width="38" height="38" rx="3" fill="none" stroke="#e4bd51" stroke-width="3" />
+    <!-- Central geometric fence grid lines -->
+    <line x1="-19" y1="0" x2="19" y2="0" stroke="#e4bd51" stroke-width="3" />
+    <line x1="0" y1="-19" x2="0" y2="19" stroke="#e4bd51" stroke-width="3" />
+    <!-- Symmetrical inner enclosing security brackets -->
+    <path d="M -11,-11 Q -6,-6 -11,-1" fill="none" stroke="#e4bd51" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 11,-11 Q 6,-6 11,-1" fill="none" stroke="#e4bd51" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M -11,11 Q -6,6 -11,1" fill="none" stroke="#e4bd51" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 11,11 Q 6,6 11,1" fill="none" stroke="#e4bd51" stroke-width="2.5" stroke-linecap="round" />
   </g>
 
-  <!-- Central Illustration Group -->
-  <g transform="translate(10, 0)">
-    <!-- Connection Lines / Data Flow -->
-    <path d="M 180,240 Q 290,160 400,240" fill="none" stroke="#2dd4bf" stroke-width="2" stroke-dasharray="6,4" opacity="0.5" />
-    <path d="M 180,240 Q 290,200 400,240" fill="none" stroke="#e4bd51" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.4" />
+  <!-- Grounded, Minimalist Diagrams / Roadmaps (Structural & Hand-crafted layout) -->
+  <g opacity="0.8">
+    <!-- Connecting architectural lines linking the Roadmap to the desks -->
+    <path d="M 135,130 L 135,220 L 220,220" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4" stroke-linecap="round" />
+    <path d="M 665,130 L 665,220 L 580,220" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4" stroke-linecap="round" />
+  </g>
 
-    <!-- Table/Desk Line -->
-    <line x1="100" y1="310" x2="480" y2="310" stroke="#ffffff" stroke-width="3" opacity="0.2" stroke-linecap="round" />
+  <!-- Road Map Card 1: Plain-Language Readiness Audit (Top Left) -->
+  <g transform="translate(60, 70)">
+    <!-- Flat white card with thin slate border -->
+    <rect width="150" height="60" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+    <rect x="15" y="-1.5" width="40" height="3" rx="1.5" fill="#0f766e" /> <!-- Decorative accent tab -->
+    <!-- Card content -->
+    <text x="16" y="24" fill="#0f766e" font-family="system-ui, sans-serif" font-size="8" font-weight="extrabold" letter-spacing="0.5">1. READINESS AUDIT</text>
+    <text x="16" y="39" fill="#475569" font-family="system-ui, sans-serif" font-size="9.5" font-weight="600">Understand the gaps</text>
+    <!-- Clean, flat checkmark badge (no glow) -->
+    <circle cx="132" cy="30" r="7" fill="#d1fae5" />
+    <path d="M 129.5,30 L 131,31.5 L 134.5,28" fill="none" stroke="#065f46" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
 
-    <!-- Left Figure (Consultant - Ghanaian Professional) -->
-    <!-- Head & Hair -->
-    <circle cx="180" cy="150" r="24" fill="#5c3826" />
-    <path d="M 160,135 Q 180,120 200,135 Q 210,150 200,165 Q 180,175 160,165 Q 150,150 160,135" fill="#1a110b" />
-    <!-- Glasses -->
-    <rect x="170" y="146" width="22" height="8" rx="2" fill="none" stroke="#e4bd51" stroke-width="2" />
-    <line x1="165" y1="150" x2="170" y2="150" stroke="#e4bd51" stroke-width="2" />
-    <!-- Neck & Body -->
-    <rect x="174" y="172" width="12" height="15" fill="#5c3826" />
-    <path d="M 140,185 L 220,185 L 230,260 L 130,260 Z" fill="#0f766e" />
-    <!-- Collar (Gold/Teal Kente touch) -->
-    <path d="M 170,185 L 180,205 L 190,185 Z" fill="#e4bd51" />
-    <!-- Hands / Laptop interaction -->
-    <circle cx="215" cy="245" r="8" fill="#5c3826" />
+  <!-- Road Map Card 2: Interactive Staff Habits (Top Right) -->
+  <g transform="translate(590, 70)">
+    <!-- Flat white card with thin slate border -->
+    <rect width="150" height="60" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+    <rect x="15" y="-1.5" width="40" height="3" rx="1.5" fill="#e4bd51" /> <!-- Decorative accent tab -->
+    <!-- Card content -->
+    <text x="16" y="24" fill="#b45309" font-family="system-ui, sans-serif" font-size="8" font-weight="extrabold" letter-spacing="0.5">2. PRACTICAL HABITS</text>
+    <text x="16" y="39" fill="#475569" font-family="system-ui, sans-serif" font-size="9.5" font-weight="600">Staff workshops &amp; training</text>
+    <!-- Clean, flat checkmark badge -->
+    <circle cx="132" cy="30" r="7" fill="#d1fae5" />
+    <path d="M 129.5,30 L 131,31.5 L 134.5,28" fill="none" stroke="#065f46" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
 
-    <!-- Right Figure (Client / Organisation Representative) -->
-    <!-- Head & Hair -->
-    <circle cx="400" cy="160" r="24" fill="#80533f" />
-    <path d="M 380,142 Q 400,130 420,142 Q 430,155 420,170 C 410,178 390,178 380,170 Q 370,155 380,142" fill="#111111" />
-    <!-- Neck & Body -->
-    <rect x="394" y="182" width="12" height="12" fill="#80533f" />
-    <path d="M 360,194 L 440,194 L 450,270 L 350,270 Z" fill="#1e293b" />
-    <!-- Scarf/Traditional Touch -->
-    <path d="M 360,194 Q 400,210 440,194 L 435,205 Q 400,220 365,205 Z" fill="#e4bd51" />
-    <!-- Hands / Notebook interaction -->
-    <circle cx="365" cy="250" r="8" fill="#80533f" />
+  <!-- The Office Plant (Sits in a terracotta pot on the right) -->
+  <g transform="translate(50, 0)">
+    <!-- Solid terracotta pot -->
+    <path d="M 540,410 L 560,410 L 556,375 L 544,375 Z" fill="#c2410c" />
+    <rect x="541" y="371" width="18" height="4" rx="1.5" fill="#ea580c" />
+    <!-- Stylized, flat-colored Monstera leaves (curator style green shades) -->
+    <!-- Stem 1 -->
+    <path d="M 550,375 Q 535,340 520,320" fill="none" stroke="#0f766e" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 520,320 C 505,310 500,325 510,335 C 520,345 525,335 520,320 Z" fill="#0f766e" />
+    <!-- Stem 2 -->
+    <path d="M 550,375 Q 555,335 565,310" fill="none" stroke="#0f766e" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 565,310 C 555,295 550,310 560,320 C 570,330 575,320 565,310 Z" fill="#115e59" />
+    <!-- Stem 3 -->
+    <path d="M 550,375 Q 565,350 575,335" fill="none" stroke="#0f766e" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 575,335 C 590,325 595,340 585,350 C 575,360 570,350 575,335 Z" fill="#0f766e" />
+  </g>
 
-    <!-- Desktop Laptop (Consultant's desk) -->
-    <rect x="210" y="250" width="70" height="42" rx="4" fill="#e2e8f0" filter="url(#dropShadow)" />
-    <rect x="215" y="255" width="60" height="32" rx="2" fill="#1e293b" />
-    <!-- Code/Graph representation on screen -->
-    <rect x="220" y="260" width="25" height="4" rx="1" fill="#2dd4bf" />
-    <rect x="220" y="268" width="40" height="4" rx="1" fill="#e4bd51" />
-    <circle cx="265" cy="275" r="6" fill="#2dd4bf" />
-    <!-- Keyboard/Base -->
-    <path d="M 200,292 L 290,292 L 295,296 L 195,296 Z" fill="#94a3b8" />
+  <!-- Minimalist, Hand-Crafted Meeting Desk -->
+  <g>
+    <!-- Sleek metal desk support legs -->
+    <line x1="240" y1="390" x2="230" y2="470" stroke="#475569" stroke-width="4.5" stroke-linecap="round" />
+    <line x1="560" y1="390" x2="570" y2="470" stroke="#475569" stroke-width="4.5" stroke-linecap="round" />
+    
+    <!-- Warm, premium natural teak wood desk tabletop -->
+    <polygon points="180,390 620,390 600,405 200,405" fill="#92400e" /> <!-- Perspective bevel -->
+    <rect x="180" y="380" width="440" height="10" rx="4" fill="#b45309" /> <!-- Main surface -->
+    <rect x="180" y="390" width="440" height="4" rx="2" fill="#78350f" /> <!-- Darker wood underside border -->
+    
+    <!-- Stylized Flat Ceramic Mug (sitting on table) -->
+    <rect x="290" y="362" width="13" height="18" rx="2.5" fill="#e2e8f0" />
+    <path d="M 303,366 C 307,366 307,376 303,376" fill="none" stroke="#e2e8f0" stroke-width="2.2" />
+    <!-- Clean organic steam curve -->
+    <path d="M 296,356 Q 299,352 296,348" fill="none" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round" opacity="0.8" />
+  </g>
 
-    <!-- Floating Security Elements (Center Top) -->
-    <g transform="translate(290, 80)" filter="url(#softShadow)">
-      <!-- Central Shield -->
-      <path d="M 0,0 C 15,-10 35,-10 50,0 C 50,25 40,55 0,70 C -40,55 -50,25 -50,0 C -35,-10 -15,-10 0,0 Z" fill="url(#tealGrad)" />
-      <!-- Inner Shield Stroke -->
-      <path d="M 0,5 C 12,-4 28,-4 40,5 C 40,25 32,48 0,60 C -32,48 -40,25 -40,5 C -28,-4 -12,-4 0,5 Z" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.5" />
-      <!-- Gold Lock Icon -->
-      <rect x="-12" y="10" width="24" height="18" rx="3" fill="url(#goldGrad)" />
-      <path d="M -7,10 L -7,4 C -7,0 -3,-3 1,-3 C 5,-3 9,0 9,4 L 9,10" fill="none" stroke="#e4bd51" stroke-width="4.5" stroke-linecap="round" />
-      <circle cx="0" cy="18" r="3" fill="#0b1f33" />
-    </g>
+  <!-- Character 1: DataGuard Consultant (Left Side) - Stylized Professional Flat Vector -->
+  <g transform="translate(20, 0)">
+    <!-- Ergonomic meeting chair frame and backrest -->
+    <path d="M 175,290 L 170,360 L 220,360" fill="none" stroke="#1e293b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+    <line x1="195" y1="360" x2="195" y2="440" stroke="#1e293b" stroke-width="5.5" />
+    <line x1="175" y1="440" x2="215" y2="440" stroke="#1e293b" stroke-width="3.5" stroke-linecap="round" />
 
-    <!-- Small Documents / Assets -->
-    <!-- Left Document -->
-    <g transform="translate(110, 220) rotate(-5)" filter="url(#dropShadow)">
-      <rect x="0" y="0" width="40" height="52" rx="4" fill="#ffffff" />
-      <line x1="6" y1="10" x2="34" y2="10" stroke="#0f766e" stroke-width="3" />
-      <line x1="6" y1="18" x2="28" y2="18" stroke="#94a3b8" stroke-width="2" />
-      <line x1="6" y1="26" x2="34" y2="26" stroke="#94a3b8" stroke-width="2" />
-      <line x1="6" y1="34" x2="20" y2="34" stroke="#94a3b8" stroke-width="2" />
-      <circle cx="30" cy="42" r="5" fill="#2dd4bf" />
-    </g>
+    <!-- Body / Torso -->
+    <!-- Solid mustard-gold wrapper base representing high-quality local textiles -->
+    <path d="M 190,340 Q 215,310 240,340 L 255,430 L 175,430 Z" fill="#d4a72c" />
+    
+    <!-- Structured, minimalist African print solid patterns (no glowing lines) -->
+    <path d="M 195,354 Q 215,366 235,354" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
+    <path d="M 188,378 Q 215,394 242,378" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M 182,402 Q 215,418 248,402" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
+    <!-- Symmetrical print detail dots -->
+    <circle cx="215" cy="330" r="2.5" fill="#0f766e" />
+    <circle cx="215" cy="410" r="2.5" fill="#0f766e" />
 
-    <!-- Right Document / Checklists -->
-    <g transform="translate(430, 210) rotate(8)" filter="url(#dropShadow)">
-      <rect x="0" y="0" width="45" height="58" rx="4" fill="#ffffff" />
-      <line x1="8" y1="12" x2="37" y2="12" stroke="#0b1f33" stroke-width="3.5" />
-      <!-- Checklist bullets -->
-      <circle cx="10" cy="24" r="2.5" fill="#e4bd51" />
-      <line x1="16" y1="24" x2="35" y2="24" stroke="#475569" stroke-width="2" />
-      <circle cx="10" cy="34" r="2.5" fill="#2dd4bf" />
-      <line x1="16" y1="34" x2="35" y2="34" stroke="#475569" stroke-width="2" />
-      <circle cx="10" cy="44" r="2.5" fill="#2dd4bf" />
-      <line x1="16" y1="44" x2="30" y2="44" stroke="#475569" stroke-width="2" />
-    </g>
+    <!-- Solid, Tailored Professional Deep Teal Blazer -->
+    <path d="M 190,340 Q 202,380 200,430" fill="none" stroke="#0f766e" stroke-width="7" stroke-linecap="round" />
+    <path d="M 240,340 Q 228,380 230,430" fill="none" stroke="#0f766e" stroke-width="7" stroke-linecap="round" />
+    <!-- Blazer collar corners -->
+    <polygon points="190,340 197,358 192,372 186,344" fill="#115e59" />
+    <polygon points="240,340 233,358 238,372 244,344" fill="#115e59" />
+
+    <!-- Neck, Face Profile and Updo Hair Bun -->
+    <rect x="210" y="295" width="10" height="15" fill="#4d2f1f" />
+    <path d="M 205,255 C 205,240 225,240 225,255 C 225,260 227,265 227,270 C 227,282 217,295 205,295 C 197,295 195,285 195,275 C 195,265 205,270 205,255 Z" fill="#4d2f1f" />
+    
+    <!-- Clean, minimal facial features -->
+    <circle cx="217" cy="265" r="1.5" fill="#ffffff" /> <!-- Stylized eye dot -->
+    <path d="M 221,273 Q 217,277 213,275" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" /> <!-- Minimal smile -->
+
+    <!-- Elegant African Hair Bun & Accent Band -->
+    <circle cx="210" cy="249" r="18" fill="#0c0704" />
+    <circle cx="210" cy="228" r="12" fill="#0c0704" />
+    <path d="M 198,246 Q 210,237 222,246" fill="none" stroke="#d4a72c" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Warm, welcoming hand gestures (real-world consultant action) -->
+    <!-- Supporting flat paper portfolio folder -->
+    <path d="M 235,345 Q 255,360 270,378" fill="none" stroke="#4d2f1f" stroke-width="6.5" stroke-linecap="round" />
+    <rect x="250" y="342" width="35" height="26" rx="2.5" fill="#0f766e" stroke="#ffffff" stroke-width="1" transform="rotate(-5 250 342)" />
+    <!-- White paper document sheet sticking out of folder slightly -->
+    <rect x="254" y="335" width="22" height="14" rx="1" fill="#ffffff" transform="rotate(-5 254 335)" />
+    <line x1="258" y1="341" x2="270" y2="339" stroke="#cbd5e1" stroke-width="1.2" />
+    
+    <!-- Gesture arm showing compliance layout on monitor screen -->
+    <path d="M 230,342 Q 255,330 282,324" fill="none" stroke="#4d2f1f" stroke-width="6.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Character 2: Client/Organisation Manager (Right Side) - Highly Grounded Corporate Partner -->
+  <g transform="translate(-10, 0)">
+    <!-- Ergonomic meeting chair frame and backrest -->
+    <path d="M 625,290 L 630,360 L 580,360" fill="none" stroke="#1e293b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+    <line x1="605" y1="360" x2="605" y2="440" stroke="#1e293b" stroke-width="5.5" />
+    <line x1="585" y1="440" x2="625" y2="440" stroke="#1e293b" stroke-width="3.5" stroke-linecap="round" />
+
+    <!-- Torso in tailored corporate dark navy suit -->
+    <path d="M 610,340 Q 585,310 560,340 L 545,430 L 625,430 Z" fill="#1e293b" />
+    
+    <!-- Crisp White Collar and gold silk tie -->
+    <polygon points="585,340 580,351 590,351" fill="#ffffff" />
+    <polygon points="583,351 587,351 588,378 585,382 582,378" fill="#d4a72c" />
+
+    <!-- Neck and Face Profile -->
+    <rect x="580" y="295" width="10" height="15" fill="#54311e" />
+    <path d="M 595,255 C 595,240 575,240 575,255 C 575,260 573,265 573,270 C 573,282 583,295 595,295 C 603,295 605,285 605,275 C 605,265 595,270 595,255 Z" fill="#54311e" />
+    
+    <!-- Minimal facial features -->
+    <circle cx="583" cy="265" r="1.5" fill="#ffffff" /> <!-- Eye dot -->
+    <path d="M 579,273 Q 583,277 587,275" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" /> <!-- smile of trust/approval -->
+
+    <!-- Short sharp vector haircut -->
+    <path d="M 588,242 C 598,242 608,252 605,268 C 605,254 598,245 588,242 Z" fill="#0c0704" />
+
+    <!-- Arm holding realistic physical notepad (taking notes) -->
+    <path d="M 565,345 Q 540,360 525,376" fill="none" stroke="#54311e" stroke-width="6.5" stroke-linecap="round" />
+    <!-- Cream paper writing notepad -->
+    <rect x="495" y="340" width="32" height="42" rx="2" fill="#fffbeb" stroke="#cbd5e1" stroke-width="1" transform="rotate(10 495 340)" />
+    <!-- Flat pencil and notes illustration on pad -->
+    <line x1="504" y1="352" x2="518" y2="355" stroke="#cbd5e1" stroke-width="1.2" transform="rotate(10 504 352)" />
+    <line x1="502" y1="360" x2="514" y2="363" stroke="#cbd5e1" stroke-width="1.2" transform="rotate(10 502 360)" />
+    <line x1="500" y1="368" x2="510" y2="370" stroke="#cbd5e1" stroke-width="1.2" transform="rotate(10 500 368)" />
+
+    <!-- Right arm resting naturally on knee -->
+    <path d="M 610,345 Q 618,375 605,400" fill="none" stroke="#54311e" stroke-width="6.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Clean, Flat-Design Modern Computer Monitor (Real-world web interface, no neon sci-fi) -->
+  <g>
+    <!-- Dark metal monitor stand -->
+    <polygon points="385,380 415,380 405,340 395,340" fill="#475569" />
+    <rect x="370" y="377" width="60" height="4" rx="1.5" fill="#334155" />
+    
+    <!-- Monitor Bezel in flat charcoal grey -->
+    <rect x="300" y="210" width="200" height="130" rx="6" fill="#1e293b" stroke="#334155" stroke-width="2" />
+    <!-- Crisp, light-themed screen surface (elegant, human, and professional) -->
+    <rect x="306" y="216" width="188" height="118" rx="3" fill="#ffffff" />
+
+    <!-- Next.js Web Application Interface Content -->
+    <!-- Solid corporate header bar (Deep Teal) -->
+    <rect x="306" y="216" width="188" height="20" fill="#0f766e" rx="2" />
+    <circle cx="316" cy="226" r="2" fill="#ffffff" opacity="0.6" />
+    <text x="325" y="229" fill="#ffffff" font-family="system-ui, sans-serif" font-size="7.5" font-weight="extrabold" letter-spacing="0.5">DATAGUARD HUB</text>
+
+    <!-- Side navigation menu (Flat slate-blue) -->
+    <rect x="306" y="236" width="30" height="98" fill="#f8fafc" />
+    <line x1="336" y1="236" x2="336" y2="334" stroke="#e2e8f0" stroke-width="1" />
+    <!-- Decorative side navigation indicators -->
+    <rect x="312" y="246" width="18" height="4" rx="1" fill="#0f766e" fill-opacity="0.15" />
+    <rect x="312" y="255" width="15" height="3.5" rx="1" fill="#cbd5e1" />
+    <rect x="312" y="264" width="16" height="3.5" rx="1" fill="#cbd5e1" />
+    <rect x="312" y="273" width="12" height="3.5" rx="1" fill="#cbd5e1" />
+
+    <!-- Application Dashboard Main Cards -->
+    <!-- Left Flat Card - Readiness status -->
+    <rect x="344" y="244" width="66" height="36" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+    <text x="350" y="253" fill="#0f766e" font-family="system-ui, sans-serif" font-size="5.5" font-weight="extrabold">READINESS</text>
+    <text x="350" y="263" fill="#1e293b" font-family="system-ui, sans-serif" font-size="8" font-weight="extrabold">92% Done</text>
+    <!-- Thin, simple flat gold progress bar -->
+    <rect x="350" y="270" width="54" height="3" rx="1.5" fill="#e2e8f0" />
+    <rect x="350" y="270" width="48" height="3" rx="1.5" fill="#d4a72c" />
+
+    <!-- Right Flat Card - Staff workshops checklist -->
+    <rect x="418" y="244" width="68" height="36" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" />
+    <text x="424" y="253" fill="#0f766e" font-family="system-ui, sans-serif" font-size="5.5" font-weight="extrabold">STAFF HABITS</text>
+    <!-- Simple checkmarks list inside card -->
+    <circle cx="427" cy="263" r="2" fill="#0f766e" />
+    <rect x="433" y="261" width="42" height="2" rx="1" fill="#475569" />
+    <circle cx="427" cy="271" r="2" fill="#0f766e" />
+    <rect x="433" y="269" width="34" height="2" rx="1" fill="#475569" />
+
+    <!-- Bottom Full-Width Certificate Row (Clean, reassuring light blue alert box) -->
+    <rect x="344" y="288" width="142" height="36" rx="4" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1" />
+    <!-- Compliance verification badge outline (Shield) -->
+    <path d="M 353,298 C 356,296 358,296 360,298 C 360,303 358,308 353,311 C 348,308 346,303 346,298 Z" fill="none" stroke="#16a34a" stroke-width="1.5" />
+    <path d="M 351,301 L 352.5,302.5 L 356,299" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" />
+    <!-- Badge text -->
+    <text x="366" y="304" fill="#15803d" font-family="system-ui, sans-serif" font-size="7" font-weight="extrabold">DPC REGISTERED</text>
+    <text x="366" y="313" fill="#166534" font-family="system-ui, sans-serif" font-size="6.5" font-weight="600">Confidentiality Guard Active</text>
   </g>
 </svg>
