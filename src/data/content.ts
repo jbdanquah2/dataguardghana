@@ -52,10 +52,10 @@ export const processSteps: ProcessStep[] = [
 
 export const serviceGroups: ServiceGroup[] = [
   {
-    title: "Find your risks",
+    title: "Understand your data",
     kicker: "Assess",
     icon: SearchCheck,
-    description: "Understand what data you hold, where it goes and which gaps need attention first.",
+    description: "Map the records you hold, how they move through the organisation, and the gaps that need attention first.",
     deliverables: [
       {
         title: "Readiness assessment",
@@ -72,10 +72,10 @@ export const serviceGroups: ServiceGroup[] = [
     ],
   },
   {
-    title: "Build confident teams",
+    title: "Prepare your people",
     kicker: "Educate",
     icon: GraduationCap,
-    description: "Give leaders and staff clear, role-specific guidance they can use at work.",
+    description: "Give leaders and staff guidance for the information they handle in their day-to-day roles.",
     deliverables: [
       {
         title: "Staff awareness training",
@@ -88,10 +88,10 @@ export const serviceGroups: ServiceGroup[] = [
     ],
   },
   {
-    title: "Make compliance practical",
+    title: "Put the essentials in place",
     kicker: "Implement & support",
     icon: FileCheck2,
-    description: "Turn recommendations into working documents, routines and ongoing support.",
+    description: "Turn agreed priorities into usable documents, clear procedures, and support when questions arise.",
     deliverables: [
       {
         title: "Policies and privacy notices",

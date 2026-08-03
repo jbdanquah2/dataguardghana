@@ -14,7 +14,7 @@ export default function Home() {
       <Hero />
       <IndustriesChips />
       <ServicesSection preview />
-      <ProcessSection compact />
+      <ProcessSection />
       <VerifiedProofSection />
       <ReadinessChecklist />
       <FinalWhatsAppCTA />

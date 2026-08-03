@@ -10,7 +10,7 @@ export default function AboutPage() {
   return (
     <>
       <AboutSection />
-      <ProcessSection compact />
+      <ProcessSection />
     </>
   );
 }

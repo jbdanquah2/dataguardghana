@@ -21,11 +21,11 @@ export function Hero() {
       <Container className="grid items-center gap-12 lg:grid-cols-[1.02fr_.98fr]">
         <div>
           <p className="eyebrow flex items-center gap-2">
-            <ShieldCheck size={15} />Data protection made practical
+            <ShieldCheck size={15} />Data protection support for Ghanaian organisations
           </p>
-          <h1 className="hero-title">Protect your organisation’s data—and the trust behind it.</h1>
+          <h1 className="hero-title">Put better data-protection habits into daily work.</h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-            Assessments, staff training and hands-on compliance support for organisations across Ghana.
+            We review how you handle personal data, train the people responsible for it, and help turn gaps into workable routines.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href={whatsappUrl} className="btn btn-primary" target="_blank" rel="noreferrer">
@@ -35,22 +35,22 @@ export function Hero() {
               Explore services
             </Link>
           </div>
-          <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-slate-600">
+          <div className="hero-facts mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-slate-600">
             <span className="flex items-center gap-2">
-              <Check size={16} className="text-[#0f766e]" />Plain-language guidance
+              <Check size={16} className="text-[#0f766e]" />Plain-language advice
             </span>
             <span className="flex items-center gap-2">
-              <Check size={16} className="text-[#0f766e]" />On-site & remote
+              <Check size={16} className="text-[#0f766e]" />On-site or remote delivery
             </span>
             <span className="flex items-center gap-2">
-              <Check size={16} className="text-[#0f766e]" />Confidential support
+              <Check size={16} className="text-[#0f766e]" />Confidential from first contact
             </span>
           </div>
         </div>
         <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-50 aspect-[3/2]">
           <Image
             src="/images/consultation-hero.svg"
-            alt="A practical data protection consultation in a modern Ghanaian office setting"
+            alt="A data-protection professional reviewing a practical privacy action plan"
             fill
             priority
             className="object-cover"
@@ -96,8 +96,8 @@ export function ServicesSection({ preview = false }: { preview?: boolean }) {
       <Container>
         <SectionHeading
           label="Our Services"
-          title={preview ? "Make data protection easier to act on" : "Support built around the outcome you need"}
-          copy="Start with the challenge in front of you. We turn complex requirements into clear actions for your organisation."
+          title={preview ? "Start with the work that matters most" : "Practical support for the work in front of you"}
+          copy="Choose the point where you need help. We will focus on your records, your people, or the routines that need to change."
         />
         <div className="mt-12 grid gap-8 lg:grid-cols-3">
           {serviceGroups.map(({ title, kicker, description, icon: Icon, deliverables }) => (
@@ -151,66 +151,93 @@ export function ServicesSection({ preview = false }: { preview?: boolean }) {
   );
 }
 
-export function ProcessSection({ compact = false }: { compact?: boolean }) {
-  const [activeStep, setActiveStep] = useState<number | null>(null);
+export function ServicesPageContent() {
+  return (
+    <>
+      <section className="page-intro section-pad bg-[#fbfcfc]">
+        <Container>
+          <p className="eyebrow">Services</p>
+          <h1 className="page-title">Support that starts with how your organisation actually works.</h1>
+          <p className="page-intro-copy">
+            Whether you need to understand your records, prepare staff, or put essential procedures in place, we help you deal with the work in front of you.
+          </p>
+        </Container>
+      </section>
 
+      <section className="section-pad bg-white">
+        <Container>
+          <div className="service-detail-list">
+            {serviceGroups.map(({ title, kicker, description, icon: Icon, deliverables }, index) => (
+              <article className="service-detail" key={title}>
+                <div className="service-detail-marker" aria-hidden="true">0{index + 1}</div>
+                <div>
+                  <div className="flex items-center gap-3">
+                    <Icon size={21} className="text-[#0f766e]" strokeWidth={1.8} />
+                    <p className="eyebrow">{kicker}</p>
+                  </div>
+                  <h2 className="mt-5 text-3xl font-bold tracking-tight text-[#0b1f33]">{title}</h2>
+                  <p className="mt-4 max-w-xl text-[1.05rem] leading-8 text-slate-600">{description}</p>
+                </div>
+                <div className="service-deliverables">
+                  <p className="service-detail-label">What you receive</p>
+                  <ul className="mt-5 space-y-4">
+                    {deliverables.map(({ title: deliverable, description: detail }) => (
+                      <li key={deliverable}>
+                        <p className="font-bold text-[#0b1f33]">{deliverable}</p>
+                        <p className="mt-1 text-sm leading-6 text-slate-600">{detail}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="section-pad bg-[#f6f9fb]">
+        <Container className="grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-end">
+          <SectionHeading
+            label="A practical starting point"
+            title="We work from your records, people, and processes—not a generic template."
+          />
+          <div className="border-l-2 border-[#0f766e] pl-6">
+            <p className="text-lg leading-8 text-slate-700">
+              Start by describing what needs attention. We will help you identify a sensible first step, whether that is a review, staff session, document update, or ongoing advice.
+            </p>
+            <a href={whatsappUrl} target="_blank" rel="noreferrer" className="btn btn-primary mt-7">
+              Start a confidential conversation <ArrowRight size={18} />
+            </a>
+          </div>
+        </Container>
+      </section>
+    </>
+  );
+}
+
+export function ProcessSection() {
   return (
     <section className="section-pad bg-[#f6f9fb]">
       <Container>
         <SectionHeading
-          label="Our process"
-          title="A clear path from uncertainty to action"
-          copy="No intimidating compliance exercise—just a structured process your team can follow."
+          label="How an engagement works"
+          title="A measured route from review to routine"
+          copy="We begin with what is happening now, agree the priorities, and leave your team with practical next steps."
         />
-        <div className="process-grid mt-12">
-          {processSteps.map(({ number, title, description, outcome, icon: Icon, deliverables }, index) => {
-            const isExpanded = activeStep === index;
-            return (
-              <article
-                key={title}
-                className="process-card flex flex-col justify-between h-full cursor-pointer transition-all hover:border-[#0f766e] focus-within:ring-2 focus-within:ring-[#0f766e] relative overflow-hidden"
-                onClick={() => setActiveStep(isExpanded ? null : index)}
-              >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="grid size-12 place-items-center rounded-xl bg-[#0b1f33] text-white">
-                      <Icon size={21} />
-                    </span>
-                    <span className="text-xs font-extrabold tracking-widest text-[#0f766e]">{number}</span>
-                  </div>
-                  <h3 className="mt-6 text-xl font-bold text-[#0b1f33]">{title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
-                </div>
-                
-                <div className="mt-4 pt-4 border-t border-slate-100">
-                  <button
-                    type="button"
-                    className="flex w-full items-center justify-between text-xs font-bold text-[#0f766e]"
-                  >
-                    <span>{isExpanded ? "Hide deliverables" : "See deliverables"}</span>
-                    <ChevronDown size={14} className={`transform transition-transform ${isExpanded ? "rotate-180" : ""}`} />
-                  </button>
-                  
-                  {isExpanded && (
-                    <ul className="mt-3 space-y-2">
-                      {deliverables.map((item) => (
-                        <li key={item} className="flex gap-2 text-xs text-slate-600">
-                          <Check size={12} className="mt-0.5 text-[#0f766e] shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-                {!compact && (
-                  <p className="mt-4 pt-4 border-t border-slate-100 text-xs font-bold leading-5 text-slate-500">
-                    <span className="text-[#0b1f33] block mb-1 uppercase tracking-wider text-[10px]">Expected Outcome</span>
-                    {outcome}
-                  </p>
-                )}
-              </article>
-            );
-          })}
+        <div className="process-grid process-grid-editorial mt-12">
+          {processSteps.map(({ number, title, description, outcome, icon: Icon }) => (
+            <article key={title} className="process-card">
+              <div className="flex items-center gap-4">
+                <span className="process-number">{number}</span>
+                <Icon size={20} className="text-[#0f766e]" strokeWidth={1.8} />
+              </div>
+              <h3 className="mt-6 text-xl font-bold text-[#0b1f33]">{title}</h3>
+              <p className="mt-2 text-sm leading-6 text-slate-600">{description}</p>
+              <p className="process-outcome mt-5 text-sm leading-6 text-slate-700">
+                <span>You leave with</span>{outcome}
+              </p>
+            </article>
+          ))}
         </div>
       </Container>
     </section>
@@ -349,8 +376,8 @@ export function ReadinessChecklist() {
         <div>
           <SectionHeading
             label="2-minute readiness check"
-            title="Could important gaps be hiding in plain sight?"
-            copy="Answer five quick questions to see which next step may suit your organisation."
+            title="See where a review may be useful"
+            copy="Five quick questions to help you identify whether records, staff habits, or internal procedures need attention."
           />
         </div>
         <ReadinessQuiz />
@@ -364,10 +391,10 @@ export function FinalWhatsAppCTA() {
     <section className="bg-[#0b1f33] py-16 text-white border-t border-slate-850">
       <Container className="text-center">
         <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-          Ready to make your organisation secure?
+          Talk through the data-protection work in front of you.
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-slate-300">
-          Skip the complex manuals. Start a direct, confidential conversation with us on WhatsApp today.
+          Share the situation in confidence. We will help you identify a sensible first step.
         </p>
         <div className="mt-8 flex justify-center">
           <a
